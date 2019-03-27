@@ -51,6 +51,17 @@
     }
   ],
   "land_modes": {
-  },
+    "default": {
+      "description": "Default land mode for fb-vscode",
+      "landStyle": "wait_for_all",
+      "skipSanityChecks": false,
+      "checkDiffSuccess": true,
+      "checks": {
+        "verifyAccepted": true,
+        "verifyDiffLocalCommitsMatch": true,
+        "verifyDiffsOnCommits": true,
+        "verifyNoMerges": true
+      }
+    },
   "vcs_type": "fb-vscode-github-git"
 }
