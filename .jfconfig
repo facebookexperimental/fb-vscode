@@ -1,0 +1,56 @@
+{
+  "capabilities": [
+    "apply",
+    "land",
+    "submit",
+  ],
+  "project_id": "fb-vscode",
+  "bundle_property": "facebook:bundle_info:fb-vscode",
+  "sandcastle_job_specs": [
+    {
+      "command": "SandcastleUniversalCommand",
+      "oncall": "nuclide",
+      "description": "fb-vscode diff target determinator",
+      "scheduleType": "diff",
+      "args": {
+        "schedule_type": "diff",
+        "name": "nuclide_vscode_target_determinator",
+        "steps": [
+          {
+            "name": "Run Nuclide-VSCode target determinator",
+            "shell": "python xplat/xplat/nuclide/scripts/vscode/target-determinator.py",
+            "determinator": true
+          }
+        ]
+      },
+      "capabilities": {
+        "type": "lego",
+        "vcs": "fb-vscode-github-git",
+        "tenant": "nuclide-vscode"
+      },
+      "jellyfish_modes": {
+        "nolint": {
+          "description": "Skip running lint on Sandcastle",
+          "value": {
+            "args": {
+              "async_lint": false
+            }
+          }
+        },
+        "post-commit": {
+          "description": "Set the schedule type to \"master\"",
+          "value": {
+            "args": {
+              "schedule_type": "master"
+            },
+            "scheduleType": "master"
+          }
+        }
+      },
+      "alias": "nuclide_vscode_target_determinator_diff",
+    }
+  ],
+  "land_modes": {
+  },
+  "vcs_type": "fb-vscode-github-git"
+}
