@@ -62,6 +62,7 @@
         "verifyDiffsOnCommits": true,
         "verifyNoMerges": true
       }
-    },
+    }
+  },
   "vcs_type": "fb-vscode-github-git"
 }
